@@ -19,13 +19,14 @@ The caller gives you an issue number and a mode, `WORK` (default) or `INSPECT`.
 2. Do only what the acceptance criteria ask. Do not touch anything listed under Out of scope.
 3. Verify the work. Run the tests or checks the spec names, plus any test or lint command the repo already defines (check package.json, Makefile, or similar). Check every acceptance criterion yourself before committing.
 4. If verification fails and the fix stays within scope, fix it and verify again. If it cannot be fixed within scope, do not commit. Revert your partial edits and return `QUESTIONS:` or a blocked report.
-5. Stage only the files you changed for this issue, by explicit path. Never use `git add -A`, `git add .`, or `git commit -a`. If `git add` or `git commit` fails on `index.lock`, wait 5 seconds and retry, up to 6 times, then report the lock as blocked.
-6. Commit with this message:
+5. Stage only the files you changed for this issue, by explicit path: `git add <own paths>`. Never use `git add -A`, `git add .`, or `git commit -a`. If `git add` or `git commit` fails on `index.lock`, wait 5 seconds and retry, up to 6 times, then report the lock as blocked.
+6. Commit only your own paths, so other soldiers' staged files stay out of your commit: `git commit -m "<message>" -- <own paths>`. The message:
    - First line: a short imperative summary, following the conventions file.
    - Blank line, then `Closes #N`.
    - Blank line, then `Co-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>`.
+   - Never reset, amend, rebase, or revert commits you did not make. Other soldiers work in the same repo concurrently, so a reset or rewrite can drop their work.
 7. Never push. Push only when the caller explicitly says to.
-8. Comment on the issue with a 2 to 4 line summary and the commit hash (`gh issue comment N --body ...`). Then close it with `gh issue close N`.
+8. Comment on the issue with a 2 to 4 line summary and the commit hash (`gh issue comment N --body ...`). Before closing, remove every `status:*` label (`gh issue edit N --remove-label status:in-progress`), then close it with `gh issue close N`. A closed issue must carry no `status:*` label.
 9. Unblock dependents. Find open issues whose "Blocked by" section lists #N. For each one whose blockers are now all closed, set `status:ready` as the conventions file describes. Change nothing else on those issues.
 
 If the spec is ambiguous, or you are blocked at any step, stop before any risky action. Keep the working tree clean of your own partial work, and return `QUESTIONS:`.

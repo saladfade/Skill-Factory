@@ -61,9 +61,9 @@ Why this exists and what it touches.
 1. List ready work: `gh issue list --state open --label status:ready`.
 2. Pick one and set it in progress: `gh issue edit <n> --remove-label status:ready --add-label status:in-progress`.
 3. Do the work, satisfying every acceptance criterion and nothing in Out of scope.
-4. Commit with `Closes #<n>` in the message.
+4. Commit with `Closes #<n>` in the message. Stage only your own paths (`git add <own paths>`) and commit only them (`git commit -m "..." -- <own paths>`), so no other staged file gets swept in. Never reset, amend, rebase, or revert commits you did not make.
 5. Comment a summary: `gh issue comment <n> --body "..."`.
-6. Close: `gh issue close <n>`.
+6. Remove every `status:*` label, then close: `gh issue edit <n> --remove-label status:in-progress` and `gh issue close <n>`. A closed issue must carry no `status:*` label.
 7. Unblock dependents: for each issue in `gh api repos/O/R/issues/<n>/dependencies/blocking`, if all of its blockers are now closed, switch it from `status:blocked` to `status:ready`.
 
 ## When a skill says "publish to the issue tracker"
