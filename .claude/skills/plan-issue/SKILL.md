@@ -1,7 +1,7 @@
 ---
 name: plan-issue
 description: Turn complex multi-step or multi-session work into a tracked GitHub epic with vertically sliced, dependency-linked sub-issues. Use when work needs more than one session or has 3+ separable deliverables, or when the user says "plan this" or "break this into issues".
-argument-hint: [work description]
+argument-hint: "[work description]"
 ---
 
 Plan the work in $ARGUMENTS as GitHub issues. This skill plans only: it creates issues and never implements them. If $ARGUMENTS is empty, ask what to plan (interactive) or return a `QUESTIONS:` block (non-interactive).

@@ -81,14 +81,15 @@ mkdir -p <target>/.claude/skills
 cp -r .claude/skills/plan-issue <target>/.claude/skills/
 ```
 
-Optional companions, if you want them. Copy each folder that exists in the source repo:
+Copy the companion skills and agents as well. The work skills launch `soldier`, and the wiki skill launches `librarian`, so all of these are required:
 
 ```bash
 cp -r .claude/skills/mountain-of-work .claude/skills/captain-claude .claude/skills/bookworm <target>/.claude/skills/
+mkdir -p <target>/.claude/agents
 cp .claude/agents/soldier.md .claude/agents/librarian.md <target>/.claude/agents/
 ```
 
-`soldier` is the worker agent that the work skills launch. `librarian` is used by the wiki skills. Copy them only if you copy the skills that use them.
+`soldier` is the worker agent that mountain-of-work and captain-claude launch. `librarian` is the agent that bookworm launches.
 
 Check: `ls <target>/.claude/skills/plan-issue` lists `issueconventions.md`, `setup-labels.sh` and `SKILL.md`. Skills and agents are project-level, so they only apply inside that repo.
 

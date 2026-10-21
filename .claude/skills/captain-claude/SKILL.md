@@ -1,7 +1,7 @@
 ---
 name: captain-claude
 description: Run a task or a set of GitHub issues end to end with Haiku soldiers, in dependency waves, with inspection and escalation.
-argument-hint: [task description or issue/epic numbers]
+argument-hint: "[task description or issue/epic numbers]"
 disable-model-invocation: true
 model: opus
 ---

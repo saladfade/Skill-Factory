@@ -1,7 +1,7 @@
 ---
 name: mountain-of-work
 description: Plan a body of work into GitHub issues with a Haiku agent, then run chosen ready issues with soldier agents. Invoked by the user as /mountain-of-work.
-argument-hint: [work description]
+argument-hint: "[work description]"
 disable-model-invocation: true
 ---
 

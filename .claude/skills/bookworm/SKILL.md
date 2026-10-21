@@ -1,6 +1,7 @@
 ---
 name: bookworm
-description: Records content into the repo's wiki, library or knowledge base, or notes. Use when the user asks to put, save, add or record something in a wiki, library, knowledge base or notes: "add this to the wiki", "note this down", "put this in the library", "save this to the library", "record this in the knowledge base". Runs after the prompt's other tasks are finished, never before them.
+description: >-
+  Records content into the repo's wiki, library or knowledge base, or notes. Use when the user asks to put, save, add or record something in a wiki, library, knowledge base or notes: "add this to the wiki", "note this down", "put this in the library", "save this to the library", "record this in the knowledge base". Runs after the prompt's other tasks are finished, never before them.
 ---
 
 Bookworm records content into a library. The `librarian` agent does all discovery and writing. This skill identifies the content, waits until the other work is done, hands off, and reports.
